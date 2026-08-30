@@ -1,0 +1,729 @@
+/* Estado inicial (já no primeiro paint): escondido e SEM transição */
+html.js #grid .custom-grid-1{
+  opacity: 0;
+  transform: translateY(24px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
+html.js.grid-anim #grid .custom-grid-1{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Estado revelado */
+html.js body.grid-revealed #grid .custom-grid-1{
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* gatilho invisível */
+#grid-reveal-trigger{ height: 1px; }
+/* acessibilidade: respeita "reduzir movimento" */
+@media (prefers-reduced-motion: reduce){
+  html.js #grid .custom-grid-1{
+    transition: none;
+    transform: none;
+  }
+}
+
+.btn-primary{
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  /* O gradiente principal baseado na imagem */
+  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
+  
+  /* Estilização básica do botão */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px; /* Ajuste conforme sua preferência */
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
+}
+
+/* Efeito ao passar o mouse */
+.btn-secondary:hover {
+  /* Inverte levemente ou clareia o gradiente */
+  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
+}
+
+/* Efeito ao clicar */
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
+  color: #111 !important;
+}
+
+/* Links */
+a { text-underline-offset: 3px; }
+
+/* ===== WhatsApp Floating Button ===== */
+.whatsapp-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.whatsapp-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+.whatsapp-float i{
+  color: #fff;
+  font-size: 28px;
+}
+
+/* ===== Cookie Banner ===== */
+#cookie-banner{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: none;
+  padding: 14px 16px;
+  background: rgba(15,15,15,.96);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+#cookie-banner .cookie-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#cookie-banner a{
+  color: var(--primary);
+  text-decoration: underline;
+}
+#cookie-banner button{
+  border: 0;
+  background: var(--primary);
+  color: #111;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
+.form-alert{
+  display:none;
+}
+
+/* Estado inicial (já no primeiro paint): escondido e SEM transição */
+html.js #grid .custom-grid-1{
+  opacity: 0;
+  transform: translateY(24px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
+html.js.grid-anim #grid .custom-grid-1{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Estado revelado */
+html.js body.grid-revealed #grid .custom-grid-1{
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* gatilho invisível */
+#grid-reveal-trigger{ height: 1px; }
+/* acessibilidade: respeita "reduzir movimento" */
+@media (prefers-reduced-motion: reduce){
+  html.js #grid .custom-grid-1{
+    transition: none;
+    transform: none;
+  }
+}
+
+.btn-primary{
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  /* O gradiente principal baseado na imagem */
+  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
+  
+  /* Estilização básica do botão */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px; /* Ajuste conforme sua preferência */
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
+}
+
+/* Efeito ao passar o mouse */
+.btn-secondary:hover {
+  /* Inverte levemente ou clareia o gradiente */
+  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
+}
+
+/* Efeito ao clicar */
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
+  color: #111 !important;
+}
+
+/* Links */
+a { text-underline-offset: 3px; }
+
+/* ===== WhatsApp Floating Button ===== */
+.whatsapp-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.whatsapp-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+.whatsapp-float i{
+  color: #fff;
+  font-size: 28px;
+}
+
+/* ===== Cookie Banner ===== */
+#cookie-banner{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: none;
+  padding: 14px 16px;
+  background: rgba(15,15,15,.96);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+#cookie-banner .cookie-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#cookie-banner a{
+  color: var(--primary);
+  text-decoration: underline;
+}
+#cookie-banner button{
+  border: 0;
+  background: var(--primary);
+  color: #111;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
+.form-alert{
+  display:none;
+}
+
+/* Estado inicial (já no primeiro paint): escondido e SEM transição */
+html.js #grid .custom-grid-1{
+  opacity: 0;
+  transform: translateY(24px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
+html.js.grid-anim #grid .custom-grid-1{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Estado revelado */
+html.js body.grid-revealed #grid .custom-grid-1{
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* gatilho invisível */
+#grid-reveal-trigger{ height: 1px; }
+/* acessibilidade: respeita "reduzir movimento" */
+@media (prefers-reduced-motion: reduce){
+  html.js #grid .custom-grid-1{
+    transition: none;
+    transform: none;
+  }
+}
+
+.btn-primary{
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  /* O gradiente principal baseado na imagem */
+  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
+  
+  /* Estilização básica do botão */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px; /* Ajuste conforme sua preferência */
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
+}
+
+/* Efeito ao passar o mouse */
+.btn-secondary:hover {
+  /* Inverte levemente ou clareia o gradiente */
+  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
+}
+
+/* Efeito ao clicar */
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
+  color: #111 !important;
+}
+
+/* Links */
+a { text-underline-offset: 3px; }
+
+/* ===== WhatsApp Floating Button ===== */
+.whatsapp-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.whatsapp-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+.whatsapp-float i{
+  color: #fff;
+  font-size: 28px;
+}
+
+/* ===== Cookie Banner ===== */
+#cookie-banner{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: none;
+  padding: 14px 16px;
+  background: rgba(15,15,15,.96);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+#cookie-banner .cookie-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#cookie-banner a{
+  color: var(--primary);
+  text-decoration: underline;
+}
+#cookie-banner button{
+  border: 0;
+  background: var(--primary);
+  color: #111;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
+.form-alert{
+  display:none;
+}
+
+/* Estado inicial (já no primeiro paint): escondido e SEM transição */
+html.js #grid .custom-grid-1{
+  opacity: 0;
+  transform: translateY(24px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
+html.js.grid-anim #grid .custom-grid-1{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Estado revelado */
+html.js body.grid-revealed #grid .custom-grid-1{
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* gatilho invisível */
+#grid-reveal-trigger{ height: 1px; }
+/* acessibilidade: respeita "reduzir movimento" */
+@media (prefers-reduced-motion: reduce){
+  html.js #grid .custom-grid-1{
+    transition: none;
+    transform: none;
+  }
+}
+
+.btn-primary{
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  /* O gradiente principal baseado na imagem */
+  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
+  
+  /* Estilização básica do botão */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px; /* Ajuste conforme sua preferência */
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
+}
+
+/* Efeito ao passar o mouse */
+.btn-secondary:hover {
+  /* Inverte levemente ou clareia o gradiente */
+  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
+}
+
+/* Efeito ao clicar */
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
+  color: #111 !important;
+}
+
+/* Links */
+a { text-underline-offset: 3px; }
+
+/* ===== WhatsApp Floating Button ===== */
+.whatsapp-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.whatsapp-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+.whatsapp-float i{
+  color: #fff;
+  font-size: 28px;
+}
+
+/* ===== Cookie Banner ===== */
+#cookie-banner{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: none;
+  padding: 14px 16px;
+  background: rgba(15,15,15,.96);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+#cookie-banner .cookie-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#cookie-banner a{
+  color: var(--primary);
+  text-decoration: underline;
+}
+#cookie-banner button{
+  border: 0;
+  background: var(--primary);
+  color: #111;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
+.form-alert{
+  display:none;
+}
+
+/* Estado inicial (já no primeiro paint): escondido e SEM transição */
+html.js #grid .custom-grid-1{
+  opacity: 0;
+  transform: translateY(24px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
+html.js.grid-anim #grid .custom-grid-1{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Estado revelado */
+html.js body.grid-revealed #grid .custom-grid-1{
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* gatilho invisível */
+#grid-reveal-trigger{ height: 1px; }
+/* acessibilidade: respeita "reduzir movimento" */
+@media (prefers-reduced-motion: reduce){
+  html.js #grid .custom-grid-1{
+    transition: none;
+    transform: none;
+  }
+}
+
+.btn-primary{
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  /* O gradiente principal baseado na imagem */
+  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
+  
+  /* Estilização básica do botão */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px; /* Ajuste conforme sua preferência */
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
+}
+
+/* Efeito ao passar o mouse */
+.btn-secondary:hover {
+  /* Inverte levemente ou clareia o gradiente */
+  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
+}
+
+/* Efeito ao clicar */
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
+  color: #111 !important;
+}
+
+/* Links */
+a { text-underline-offset: 3px; }
+
+/* ===== WhatsApp Floating Button ===== */
+.whatsapp-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.whatsapp-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+.whatsapp-float i{
+  color: #fff;
+  font-size: 28px;
+}
+
+/* ===== Cookie Banner ===== */
+#cookie-banner{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: none;
+  padding: 14px 16px;
+  background: rgba(15,15,15,.96);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+#cookie-banner .cookie-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#cookie-banner a{
+  color: var(--primary);
+  text-decoration: underline;
+}
+#cookie-banner button{
+  border: 0;
+  background: var(--primary);
+  color: #111;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
+.form-alert{
+  display:none;
+}
+
+/* ===== Hero: Troca tonalidade amarela → azul (primary) ===== */
+
+/* 1. Sobrescreve as variáveis de cor primária para azul */
+:root {
+  --primary: #2563EB;
+  --primary-100: #1d55d4;
+  --primary-200: #1a4fc8;
+  --primary-300: #1749bc;
+  --primary--100: #3b76f5;
+  --primary--200: #4d84f7;
+  --primary--300: #5e93f8;
+  --primary-rgba-0:  rgba(37,99,235,0);
+  --primary-rgba-10: rgba(37,99,235,0.1);
+  --primary-rgba-20: rgba(37,99,235,0.2);
+  --primary-rgba-30: rgba(37,99,235,0.3);
+  --primary-rgba-40: rgba(37,99,235,0.4);
+  --primary-rgba-50: rgba(37,99,235,0.5);
+  --primary-rgba-60: rgba(37,99,235,0.6);
+  --primary-rgba-70: rgba(37,99,235,0.7);
+  --primary-rgba-80: rgba(37,99,235,0.8);
+  --primary-rgba-90: rgba(37,99,235,0.9);
+}
+
+/* 2. Stop-color da lâmpada SVG: amarelo → azul */
+.custom-stop-color-1 {
+  stop-color: #2563EB;
+}
+
+/* 3. Watermark "RESOLUTIVA" – mais brilhante e visível */
+.custom-hero-heading,
+.custom-hero-heading strong {
+  color: rgba(255,255,255,0.55) !important;
+  text-shadow:
+    0 0 20px rgba(37,99,235,1),
+    0 0 60px rgba(37,99,235,0.75),
+    0 0 120px rgba(37,99,235,0.45);
+  -webkit-text-stroke: 2px rgba(255,255,255,0.70);
+}
+
+/* 4. Botão primário: texto claro sobre fundo azul */
+.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
+  color: #fff !important;
+}
+
+/* 5. Nav link ativo: azul em vez de amarelo */
+.nav-link.active,
+.nav-link:hover {
+  color: #2563EB !important;
+}

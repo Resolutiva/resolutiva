@@ -1,0 +1,56 @@
+/* General */
+:root {
+	--border-radius: 4px; /* Ajustado levemente para combinar com o botão da imagem */
+	--border-radius2x: 8px;
+	--default: #555;
+}
+
+/* Skin Colors - Baseadas na Imagem */
+:root {
+	/* O Amarelo/Laranja principal dos detalhes curvos e acentos */
+	--primary: #FBC105; 
+	--primary-100: #fdb901;
+	--primary-200: #f1af00;
+	--primary-300: #e5a600;
+	--primary--100: #ffcc33;
+	--primary-rgba-50: rgba(251, 193, 5, 0.5);
+
+	/* O Roxo/Violeta do gradiente superior */
+	--secondary: #6e27e1; 
+	--secondary-100: #5d1bc7;
+	--secondary-200: #4c13a8;
+	--secondary--100: #8a4df5;
+	--secondary-rgba-50: rgba(110, 39, 225, 0.5);
+
+	/* O Azul vibrante do canto superior esquerdo */
+	--tertiary: #2e5bff; 
+	--tertiary-100: #1a49f0;
+	--tertiary--100: #5c7fff;
+	--tertiary-rgba-50: rgba(46, 91, 255, 0.5);
+
+	/* Dark Mode / Textos Escuros */
+	--quaternary: #222222;
+	--dark: #1a1a1a;
+	--light: #FFFFFF;
+}
+
+/* Skin Colors - Inverse */
+:root {
+	--primary-inverse: #FFF;
+	--secondary-inverse: #FFF;
+	--tertiary-inverse: #FFF;
+	--quaternary-inverse: #FFF;
+	--dark-inverse: #FFF;
+	--light-inverse: #222;
+}
+
+/* Grey Colors - Tons mais limpos para o fundo e textos secundários */
+:root {
+	--grey: #999999;
+	--grey-100: #f9f9fb; /* Fundo levemente azulado/frio */
+	--grey-200: #f1f1f4;
+	--grey-300: #e2e2e8;
+	--grey-800: #666666;
+	--grey-900: #444444;
+	--grey-1000: #222222;
+}

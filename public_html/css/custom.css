@@ -792,3 +792,88 @@ a { text-underline-offset: 3px; }
   .rv-reveal-mark { animation: none !important; opacity: 0 !important; }
   .rv-reveal-word { animation: none !important; opacity: 1 !important; clip-path: none !important; }
 }
+
+/* 7. Seção Contato: cards de e-mail/WhatsApp + ícones sociais em círculo */
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
+
+.contact-method-icon {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  background: var(--primary-rgba-30);
+  color: #2563EB;
+}
+
+.contact-method-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-method-text strong {
+  color: var(--dark);
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.contact-method-text span {
+  color: var(--grey-800);
+  font-size: 0.9rem;
+}
+
+.contact-method-primary {
+  background: #2563EB;
+  box-shadow: 0 4px 16px var(--primary-rgba-50);
+}
+
+.contact-method-primary .contact-method-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.contact-method-primary .contact-method-text strong,
+.contact-method-primary .contact-method-text span {
+  color: #fff;
+}
+
+.contact-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-rgba-30);
+  color: #2563EB;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-social-icons a:hover {
+  background: #2563EB;
+  color: #fff;
+  transform: translateY(-3px);
+}

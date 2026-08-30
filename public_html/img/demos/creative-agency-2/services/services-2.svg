@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+	<title>E-commerce</title>
+	<defs>
+		<linearGradient id="bg2" x1="0" y1="0" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#1e3a8a"/>
+			<stop offset="1" stop-color="#7c3aed"/>
+		</linearGradient>
+	</defs>
+	<rect width="900" height="900" fill="url(#bg2)"/>
+	<circle cx="140" cy="760" r="220" fill="#ffffff" opacity="0.05"/>
+	<circle cx="740" cy="160" r="180" fill="#ffffff" opacity="0.06"/>
+
+	<path d="M300 360 L340 260 Q450 210 560 260 L600 360" fill="none" stroke="#ffffff" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+	<path d="M270 360 H630 L600 660 Q600 690 570 690 H330 Q300 690 300 660 Z" fill="#ffffff"/>
+	<rect x="380" y="440" width="140" height="20" rx="10" fill="#7c3aed"/>
+
+	<g transform="translate(560,470)">
+		<circle r="70" fill="#f59e0b"/>
+		<text x="0" y="18" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle">%</text>
+	</g>
+
+	<path d="M230 240 l10 -30 10 30 30 10 -30 10 -10 30 -10 -30 -30 -10 z" fill="#ffffff" opacity="0.7"/>
+	<path d="M650 630 l8 -24 8 24 24 8 -24 8 -8 24 -8 -24 -24 -8 z" fill="#ffffff" opacity="0.6"/>
+</svg>

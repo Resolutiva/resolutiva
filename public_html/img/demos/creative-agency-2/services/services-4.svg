@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+	<title>Agentes de IA</title>
+	<defs>
+		<linearGradient id="bg4" x1="0" y1="0" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#312e81"/>
+			<stop offset="1" stop-color="#8b5cf6"/>
+		</linearGradient>
+	</defs>
+	<rect width="900" height="900" fill="url(#bg4)"/>
+	<circle cx="720" cy="720" r="240" fill="#ffffff" opacity="0.05"/>
+	<circle cx="160" cy="160" r="150" fill="#ffffff" opacity="0.06"/>
+
+	<path d="M210 300 Q210 240 270 240 H630 Q690 240 690 300 V500 Q690 560 630 560 H420 L330 650 L340 560 H270 Q210 560 210 500 Z" fill="#ffffff"/>
+
+	<g transform="translate(450,400)">
+		<path d="M0 -90 L26 -26 L90 0 L26 26 L0 90 L-26 26 L-90 0 L-26 -26 Z" fill="#7c3aed"/>
+		<circle r="26" fill="#ffffff"/>
+	</g>
+
+	<circle cx="560" cy="320" r="10" fill="#f59e0b"/>
+	<circle cx="340" cy="460" r="8" fill="#0ea5e9"/>
+	<circle cx="600" cy="470" r="7" fill="#10b981"/>
+</svg>

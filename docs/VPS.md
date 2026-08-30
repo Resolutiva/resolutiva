@@ -21,6 +21,30 @@ ssh root@31.97.30.36          # chave ed25519 já autorizada (sem senha)
 | MySQL | local na VPS (`resolutivachat`); acesso remoto com user/senha do `.env` local do projeto |
 | Supervisor conf | `/etc/supervisor/conf.d/agendativa.conf` (fonte no repo: `deploy/supervisor/agendativa.conf`) |
 
+## Site institucional Resolutiva (`public_html/` na raiz do domínio)
+
+Diferente do `chat` (app agendativa), a landing page da Resolutiva (`resolutiva/resolutiva` no GitHub) é servida
+diretamente por `/home/resolutiva.com.br/public_html/` — que **é um symlink**, não uma pasta real:
+
+```
+/home/resolutiva.com.br/public_html -> resolutiva/public_html
+/home/resolutiva.com.br/resolutiva/         # clone git completo (root), sparse-checkout só em public_html/
+/home/resolutiva.com.br/resolutiva/.git/    # fora do docroot, não é servido (testado: 404)
+```
+
+O repo tem `docs/` e `media/` na raiz além de `public_html/` — **essas duas pastas nunca são baixadas na VPS**
+(`git sparse-checkout set public_html`), pra não expor este arquivo nem os assets de origem no webroot público.
+
+Deploy (como root, mesma exceção do `git pull` do chat):
+```bash
+cd /home/resolutiva.com.br/resolutiva
+git pull
+chown -R resol2813:nobody .        # mesmo motivo do golden rule: git como root muda o dono
+```
+Site atualiza na hora — não precisa reiniciar nada (é só HTML/CSS/JS + `qr/index.php`).
+
+Backup pré-migração (pasta real antiga, caso precise comparar/reverter): `public_html.pre-git-backup-20260830-142033/`.
+
 ## ⚠️ Regras de ouro
 
 **Nunca rodar `git`/`artisan` como root** — cria arquivos com dono root e quebra a app (já aconteceu com `laravel.log`). Sempre:

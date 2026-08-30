@@ -728,7 +728,7 @@ a { text-underline-offset: 3px; }
   color: #2563EB !important;
 }
 
-/* 6. Reveal RV -> Resolutiva: a sigla abre e forma o nome (header + hero) */
+/* 6. Reveal RV -> Resolutiva: a sigla abre e forma o nome (logo do header) */
 .rv-reveal {
   position: relative;
   display: inline-flex;
@@ -772,11 +772,6 @@ a { text-underline-offset: 3px; }
   display: block;
   width: 150px;
   height: 40px;
-}
-
-.rv-reveal-hero .rv-reveal-mark {
-  height: clamp(50px, 9vw, 150px);
-  width: auto;
 }
 
 /* theme.css sets "#header .header-logo img { position: relative; top: 0 }"

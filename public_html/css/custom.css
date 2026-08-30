@@ -727,3 +727,68 @@ a { text-underline-offset: 3px; }
 .nav-link:hover {
   color: #2563EB !important;
 }
+
+/* 6. Reveal RV -> Resolutiva: a sigla abre e forma o nome (header + hero) */
+.rv-reveal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rv-reveal-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rvMarkOut 1.7s cubic-bezier(.6, .05, .15, 1) both;
+}
+
+.rv-reveal-word {
+  opacity: 0;
+  animation: rvWordIn 1.7s cubic-bezier(.6, .05, .15, 1) both;
+}
+
+@keyframes rvMarkOut {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  40%  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  62%  { opacity: 0; transform: translate(-50%, -50%) scale(1.3) translateX(-8%); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.3) translateX(-8%); }
+}
+
+@keyframes rvWordIn {
+  0%   { opacity: 0; clip-path: inset(0 100% 0 0); }
+  42%  { opacity: 0; clip-path: inset(0 100% 0 0); }
+  48%  { opacity: 1; }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+.rv-reveal-header {
+  width: 150px;
+  height: 40px;
+}
+
+.rv-reveal-header .rv-reveal-word {
+  display: block;
+  width: 150px;
+  height: 40px;
+}
+
+.rv-reveal-hero .rv-reveal-mark {
+  height: clamp(50px, 9vw, 150px);
+  width: auto;
+}
+
+/* theme.css sets "#header .header-logo img { position: relative; top: 0 }"
+   which outranks .rv-reveal-mark on specificity alone — reassert here. */
+#header .header-logo .rv-reveal-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-reveal-mark { animation: none !important; opacity: 0 !important; }
+  .rv-reveal-word { animation: none !important; opacity: 1 !important; clip-path: none !important; }
+}

@@ -736,11 +736,20 @@ a { text-underline-offset: 3px; }
   justify-content: center;
 }
 
+/* .rv-reveal-mark is a <span>, not <img> — the theme's sticky-header JS
+   (theme.js: $('.header-logo').find('img')) grabs width/height off the
+   FIRST <img> it finds in .header-logo and forces both logo images to
+   that size on scroll. A second real <img> here made the whole logo
+   shrink to the mark's tiny dimensions once sticky mode kicked in. */
 .rv-reveal-mark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-image: url(../img/logo/rv-mark.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   animation: rvMarkOut 1.7s cubic-bezier(.6, .05, .15, 1) both;
 }
 
@@ -768,19 +777,15 @@ a { text-underline-offset: 3px; }
   height: 40px;
 }
 
+.rv-reveal-header .rv-reveal-mark {
+  width: 31px;
+  height: 34px;
+}
+
 .rv-reveal-header .rv-reveal-word {
   display: block;
   width: 150px;
   height: 40px;
-}
-
-/* theme.css sets "#header .header-logo img { position: relative; top: 0 }"
-   which outranks .rv-reveal-mark on specificity alone — reassert here. */
-#header .header-logo .rv-reveal-mark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -134,550 +134,6 @@ a { text-underline-offset: 3px; }
   display:none;
 }
 
-/* Estado inicial (já no primeiro paint): escondido e SEM transição */
-html.js #grid .custom-grid-1{
-  opacity: 0;
-  transform: translateY(24px);
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
-html.js.grid-anim #grid .custom-grid-1{
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-/* Estado revelado */
-html.js body.grid-revealed #grid .custom-grid-1{
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* gatilho invisível */
-#grid-reveal-trigger{ height: 1px; }
-/* acessibilidade: respeita "reduzir movimento" */
-@media (prefers-reduced-motion: reduce){
-  html.js #grid .custom-grid-1{
-    transition: none;
-    transform: none;
-  }
-}
-
-.btn-primary{
-  border-color: var(--primary);
-}
-
-.btn-secondary {
-  /* O gradiente principal baseado na imagem */
-  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
-  
-  /* Estilização básica do botão */
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px; /* Ajuste conforme sua preferência */
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
-}
-
-/* Efeito ao passar o mouse */
-.btn-secondary:hover {
-  /* Inverte levemente ou clareia o gradiente */
-  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
-}
-
-/* Efeito ao clicar */
-.btn-secondary:active {
-  transform: translateY(0);
-}
-
-.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
-  color: #111 !important;
-}
-
-/* Links */
-a { text-underline-offset: 3px; }
-
-/* ===== WhatsApp Floating Button ===== */
-.whatsapp-float{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #25D366;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.whatsapp-float:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-}
-.whatsapp-float i{
-  color: #fff;
-  font-size: 28px;
-}
-
-/* ===== Cookie Banner ===== */
-#cookie-banner{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9998;
-  display: none;
-  padding: 14px 16px;
-  background: rgba(15,15,15,.96);
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-#cookie-banner .cookie-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-#cookie-banner a{
-  color: var(--primary);
-  text-decoration: underline;
-}
-#cookie-banner button{
-  border: 0;
-  background: var(--primary);
-  color: #111;
-  font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 8px;
-}
-
-/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
-.form-alert{
-  display:none;
-}
-
-/* Estado inicial (já no primeiro paint): escondido e SEM transição */
-html.js #grid .custom-grid-1{
-  opacity: 0;
-  transform: translateY(24px);
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
-html.js.grid-anim #grid .custom-grid-1{
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-/* Estado revelado */
-html.js body.grid-revealed #grid .custom-grid-1{
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* gatilho invisível */
-#grid-reveal-trigger{ height: 1px; }
-/* acessibilidade: respeita "reduzir movimento" */
-@media (prefers-reduced-motion: reduce){
-  html.js #grid .custom-grid-1{
-    transition: none;
-    transform: none;
-  }
-}
-
-.btn-primary{
-  border-color: var(--primary);
-}
-
-.btn-secondary {
-  /* O gradiente principal baseado na imagem */
-  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
-  
-  /* Estilização básica do botão */
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px; /* Ajuste conforme sua preferência */
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
-}
-
-/* Efeito ao passar o mouse */
-.btn-secondary:hover {
-  /* Inverte levemente ou clareia o gradiente */
-  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
-}
-
-/* Efeito ao clicar */
-.btn-secondary:active {
-  transform: translateY(0);
-}
-
-.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
-  color: #111 !important;
-}
-
-/* Links */
-a { text-underline-offset: 3px; }
-
-/* ===== WhatsApp Floating Button ===== */
-.whatsapp-float{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #25D366;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.whatsapp-float:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-}
-.whatsapp-float i{
-  color: #fff;
-  font-size: 28px;
-}
-
-/* ===== Cookie Banner ===== */
-#cookie-banner{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9998;
-  display: none;
-  padding: 14px 16px;
-  background: rgba(15,15,15,.96);
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-#cookie-banner .cookie-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-#cookie-banner a{
-  color: var(--primary);
-  text-decoration: underline;
-}
-#cookie-banner button{
-  border: 0;
-  background: var(--primary);
-  color: #111;
-  font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 8px;
-}
-
-/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
-.form-alert{
-  display:none;
-}
-
-/* Estado inicial (já no primeiro paint): escondido e SEM transição */
-html.js #grid .custom-grid-1{
-  opacity: 0;
-  transform: translateY(24px);
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
-html.js.grid-anim #grid .custom-grid-1{
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-/* Estado revelado */
-html.js body.grid-revealed #grid .custom-grid-1{
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* gatilho invisível */
-#grid-reveal-trigger{ height: 1px; }
-/* acessibilidade: respeita "reduzir movimento" */
-@media (prefers-reduced-motion: reduce){
-  html.js #grid .custom-grid-1{
-    transition: none;
-    transform: none;
-  }
-}
-
-.btn-primary{
-  border-color: var(--primary);
-}
-
-.btn-secondary {
-  /* O gradiente principal baseado na imagem */
-  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
-  
-  /* Estilização básica do botão */
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px; /* Ajuste conforme sua preferência */
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
-}
-
-/* Efeito ao passar o mouse */
-.btn-secondary:hover {
-  /* Inverte levemente ou clareia o gradiente */
-  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
-}
-
-/* Efeito ao clicar */
-.btn-secondary:active {
-  transform: translateY(0);
-}
-
-.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
-  color: #111 !important;
-}
-
-/* Links */
-a { text-underline-offset: 3px; }
-
-/* ===== WhatsApp Floating Button ===== */
-.whatsapp-float{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #25D366;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.whatsapp-float:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-}
-.whatsapp-float i{
-  color: #fff;
-  font-size: 28px;
-}
-
-/* ===== Cookie Banner ===== */
-#cookie-banner{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9998;
-  display: none;
-  padding: 14px 16px;
-  background: rgba(15,15,15,.96);
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-#cookie-banner .cookie-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-#cookie-banner a{
-  color: var(--primary);
-  text-decoration: underline;
-}
-#cookie-banner button{
-  border: 0;
-  background: var(--primary);
-  color: #111;
-  font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 8px;
-}
-
-/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
-.form-alert{
-  display:none;
-}
-
-/* Estado inicial (já no primeiro paint): escondido e SEM transição */
-html.js #grid .custom-grid-1{
-  opacity: 0;
-  transform: translateY(24px);
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Só depois que o JS adicionar .grid-anim é que a transição passa a existir */
-html.js.grid-anim #grid .custom-grid-1{
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-/* Estado revelado */
-html.js body.grid-revealed #grid .custom-grid-1{
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* gatilho invisível */
-#grid-reveal-trigger{ height: 1px; }
-/* acessibilidade: respeita "reduzir movimento" */
-@media (prefers-reduced-motion: reduce){
-  html.js #grid .custom-grid-1{
-    transition: none;
-    transform: none;
-  }
-}
-
-.btn-primary{
-  border-color: var(--primary);
-}
-
-.btn-secondary {
-  /* O gradiente principal baseado na imagem */
-  background: linear-gradient(90deg, #2e5bff 0%, #7e16ff 100%);
-  
-  /* Estilização básica do botão */
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px; /* Ajuste conforme sua preferência */
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(46, 91, 255, 0.3);
-}
-
-/* Efeito ao passar o mouse */
-.btn-secondary:hover {
-  /* Inverte levemente ou clareia o gradiente */
-  background: linear-gradient(90deg, #4772ff 0%, #8e3dff 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(126, 22, 255, 0.4);
-}
-
-/* Efeito ao clicar */
-.btn-secondary:active {
-  transform: translateY(0);
-}
-
-.btn-primary:not(.btn-outline):not(.btn-light):not(.btn-dark){
-  color: #111 !important;
-}
-
-/* Links */
-a { text-underline-offset: 3px; }
-
-/* ===== WhatsApp Floating Button ===== */
-.whatsapp-float{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #25D366;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.whatsapp-float:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-}
-.whatsapp-float i{
-  color: #fff;
-  font-size: 28px;
-}
-
-/* ===== Cookie Banner ===== */
-#cookie-banner{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9998;
-  display: none;
-  padding: 14px 16px;
-  background: rgba(15,15,15,.96);
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-#cookie-banner .cookie-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-#cookie-banner a{
-  color: var(--primary);
-  text-decoration: underline;
-}
-#cookie-banner button{
-  border: 0;
-  background: var(--primary);
-  color: #111;
-  font-weight: 700;
-  padding: 8px 14px;
-  border-radius: 8px;
-}
-
-/* ===== Ajustes do formulário (para ficar limpo com FormSubmit) ===== */
-.form-alert{
-  display:none;
-}
-
 /* ===== Hero: Troca tonalidade amarela → azul (primary) ===== */
 
 /* 1. Sobrescreve as variáveis de cor primária para azul */
@@ -878,95 +334,149 @@ a { text-underline-offset: 3px; }
   transform: translateY(-3px);
 }
 
-/* 8. Seção Produtos: cards do ResolutivaChat e ResolutivaPages */
-.product-card {
+/* 8. Seção Produtos: banners do ResolutivaChat e ResolutivaPages */
+.product-banner {
   position: relative;
-  height: 100%;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
+  border-radius: 28px;
+  padding: 3rem;
+  overflow: hidden;
   color: #fff;
-  margin-bottom: 1.25rem;
 }
 
-.product-card-icon-whatsapp {
-  background: #25D366;
+.product-banner-chat {
+  background: linear-gradient(135deg, #075E54 0%, #25D366 100%);
+  box-shadow: 0 20px 50px rgba(7, 94, 84, 0.35);
 }
 
-.product-card-icon-pages {
-  background: #2563EB;
+.product-banner-pages {
+  background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+  box-shadow: 0 20px 50px rgba(76, 29, 149, 0.35);
 }
 
-.product-card-eyebrow {
+.product-banner::before,
+.product-banner::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.product-banner::before {
+  width: 320px;
+  height: 320px;
+  top: -120px;
+  right: -100px;
+}
+
+.product-banner::after {
+  width: 220px;
+  height: 220px;
+  bottom: -100px;
+  left: -60px;
+}
+
+.product-banner-content {
+  position: relative;
+  z-index: 1;
+}
+
+.product-banner-eyebrow {
   display: block;
-  color: #2563EB;
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-bottom: 0.5rem;
 }
 
-.product-card-title {
+.product-banner-title {
+  color: #fff;
   font-weight: 700;
-  font-size: 1.7rem;
+  font-size: 2rem;
   text-transform: none;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.product-card-text {
-  color: var(--grey-800);
+.product-banner-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.7;
   margin-bottom: 1.5rem;
 }
 
-.product-card-list {
+.product-banner-list {
   list-style: none;
   padding: 0;
   margin: 0 0 2rem;
-  flex-grow: 1;
 }
 
-.product-card-list li {
+.product-banner-list li {
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
-  margin-bottom: 0.75rem;
-  color: var(--dark);
-  font-size: 0.95rem;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+  color: #fff;
+  font-size: 1rem;
 }
 
-.product-card-list li i {
-  color: #2563EB;
-  margin-top: 3px;
+.product-banner-list li i {
   flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  margin-top: 2px;
 }
 
-.product-card-badge {
+.product-banner-btn {
+  background: #fff !important;
+  color: #111 !important;
+  border: 0;
+  font-weight: 600;
+}
+
+.product-banner-media {
+  position: relative;
+  z-index: 1;
+}
+
+.product-banner-media img {
+  max-height: 340px;
+  width: auto;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.25));
+}
+
+.product-banner-badge {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 2rem;
+  right: 2rem;
   background: #f59e0b;
   color: #fff;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.3rem 0.75rem;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
+  z-index: 2;
 }
 
-.product-card .btn {
-  align-self: flex-start;
+@media (max-width: 991px) {
+  .product-banner {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .product-banner-media {
+    margin-top: 2rem;
+  }
+
+  .product-banner-list li {
+    text-align: left;
+  }
 }

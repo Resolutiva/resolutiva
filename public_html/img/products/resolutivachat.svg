@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+	<title>ResolutivaChat</title>
+	<rect x="220" y="60" width="260" height="580" rx="46" fill="#0f172a"/>
+	<rect x="240" y="104" width="220" height="492" rx="20" fill="#ECE5DD"/>
+	<path d="M240 124 a20 20 0 0 1 20 -20 h180 a20 20 0 0 1 20 20 v50 h-220 Z" fill="#075E54"/>
+	<circle cx="270" cy="139" r="18" fill="#ffffff" opacity="0.9"/>
+	<rect x="298" y="128" width="90" height="12" rx="6" fill="#ffffff"/>
+	<rect x="298" y="148" width="60" height="9" rx="4" fill="#d7f5ea"/>
+
+	<rect x="256" y="200" width="140" height="50" rx="14" fill="#ffffff"/>
+	<rect x="270" y="214" width="100" height="10" rx="5" fill="#c7c7c7"/>
+	<rect x="270" y="230" width="70" height="10" rx="5" fill="#dcdcdc"/>
+
+	<rect x="270" y="266" width="150" height="66" rx="14" fill="#DCF8C6"/>
+	<rect x="284" y="280" width="110" height="10" rx="5" fill="#4b8a5e"/>
+	<rect x="284" y="296" width="90" height="10" rx="5" fill="#79b98d"/>
+	<rect x="284" y="312" width="50" height="10" rx="5" fill="#79b98d"/>
+
+	<rect x="256" y="348" width="120" height="40" rx="14" fill="#ffffff"/>
+	<rect x="270" y="362" width="80" height="10" rx="5" fill="#c7c7c7"/>
+
+	<rect x="252" y="560" width="176" height="30" rx="15" fill="#ffffff"/>
+	<circle cx="452" cy="575" r="16" fill="#25D366"/>
+	<path d="M446 575 l5 5 8 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+	<g transform="translate(140,190)">
+		<circle r="54" fill="#ffffff"/>
+		<path d="M0 -30 L9 -9 L30 0 L9 9 L0 30 L-9 9 L-30 0 L-9 -9 Z" fill="#25D366"/>
+	</g>
+
+	<g transform="translate(560,470)">
+		<circle r="50" fill="#ffffff"/>
+		<rect x="-22" y="-20" width="44" height="38" rx="6" fill="none" stroke="#075E54" stroke-width="5"/>
+		<line x1="-22" y1="-6" x2="22" y2="-6" stroke="#075E54" stroke-width="5"/>
+		<line x1="-10" y1="-28" x2="-10" y2="-14" stroke="#075E54" stroke-width="5" stroke-linecap="round"/>
+		<line x1="10" y1="-28" x2="10" y2="-14" stroke="#075E54" stroke-width="5" stroke-linecap="round"/>
+		<circle cx="6" cy="8" r="3" fill="#25D366"/>
+		<circle cx="-6" cy="8" r="3" fill="#075E54"/>
+	</g>
+</svg>

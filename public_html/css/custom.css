@@ -877,3 +877,96 @@ a { text-underline-offset: 3px; }
   color: #fff;
   transform: translateY(-3px);
 }
+
+/* 8. Seção Produtos: cards do ResolutivaChat e ResolutivaPages */
+.product-card {
+  position: relative;
+  height: 100%;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.product-card-icon-whatsapp {
+  background: #25D366;
+}
+
+.product-card-icon-pages {
+  background: #2563EB;
+}
+
+.product-card-eyebrow {
+  display: block;
+  color: #2563EB;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-card-title {
+  font-weight: 700;
+  font-size: 1.7rem;
+  text-transform: none;
+  margin-bottom: 0.75rem;
+}
+
+.product-card-text {
+  color: var(--grey-800);
+  margin-bottom: 1.5rem;
+}
+
+.product-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  flex-grow: 1;
+}
+
+.product-card-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
+.product-card-list li i {
+  color: #2563EB;
+  margin-top: 3px;
+  flex: 0 0 auto;
+}
+
+.product-card-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #f59e0b;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.product-card .btn {
+  align-self: flex-start;
+}

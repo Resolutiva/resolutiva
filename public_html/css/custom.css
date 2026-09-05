@@ -476,7 +476,12 @@ a { text-underline-offset: 3px; }
     margin-top: 2rem;
   }
 
-  .product-banner-list li {
+  .product-banner-list {
+    display: inline-block;
     text-align: left;
+  }
+
+  .product-banner-list li {
+    justify-content: flex-start;
   }
 }

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+	<title>Portfólio Resolutiva</title>
+	<rect x="80" y="120" width="540" height="380" rx="20" fill="#ffffff"/>
+	<path d="M80 140 a20 20 0 0 1 20 -20 h500 a20 20 0 0 1 20 20 v36 h-540 Z" fill="#f1f5f9"/>
+	<circle cx="112" cy="148" r="8" fill="#f87171"/>
+	<circle cx="138" cy="148" r="8" fill="#fbbf24"/>
+	<circle cx="164" cy="148" r="8" fill="#34d399"/>
+	<rect x="210" y="136" width="330" height="22" rx="11" fill="#ffffff"/>
+
+	<rect x="112" y="196" width="184" height="130" rx="10" fill="#ffe4e6"/>
+	<rect x="112" y="196" width="184" height="130" rx="10" fill="none" stroke="#fb7185" stroke-width="4"/>
+	<circle cx="150" cy="234" r="14" fill="#fda4af"/>
+	<path d="M120 300 l40 -34 l30 24 l50 -46 l26 22 v34 z" fill="#fb7185" opacity="0.55"/>
+
+	<rect x="312" y="196" width="184" height="130" rx="10" fill="#dbeafe"/>
+	<rect x="312" y="196" width="184" height="130" rx="10" fill="none" stroke="#60a5fa" stroke-width="4"/>
+	<circle cx="350" cy="234" r="14" fill="#93c5fd"/>
+	<path d="M320 300 l40 -34 l30 24 l50 -46 l26 22 v34 z" fill="#60a5fa" opacity="0.55"/>
+
+	<rect x="112" y="342" width="184" height="118" rx="10" fill="#dcfce7"/>
+	<rect x="112" y="342" width="184" height="118" rx="10" fill="none" stroke="#34d399" stroke-width="4"/>
+	<circle cx="150" cy="376" r="12" fill="#86efac"/>
+	<path d="M120 434 l36 -30 l28 22 l46 -40 l22 18 v30 z" fill="#34d399" opacity="0.55"/>
+
+	<rect x="312" y="342" width="184" height="118" rx="10" fill="#ede9fe"/>
+	<rect x="312" y="342" width="184" height="118" rx="10" fill="none" stroke="#a78bfa" stroke-width="4"/>
+	<circle cx="350" cy="376" r="12" fill="#c4b5fd"/>
+	<path d="M320 434 l36 -30 l28 22 l46 -40 l22 18 v30 z" fill="#a78bfa" opacity="0.55"/>
+
+	<g transform="translate(600,150)">
+		<circle r="48" fill="#ffffff"/>
+		<path d="M-16 4 l10 10 l22 -26" fill="none" stroke="#16a34a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+	</g>
+
+	<g transform="translate(100,470)">
+		<circle r="50" fill="#ffffff"/>
+		<circle cx="-6" cy="-6" r="16" fill="none" stroke="#2563eb" stroke-width="5"/>
+		<line x1="6" y1="6" x2="18" y2="18" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+	</g>
+</svg>

@@ -100,15 +100,16 @@
     // ---------- Avaliações do Google (ResolutivaPages) ----------
     // Espera: { place: { maps_url, review_url }, rating, ratings_total, reviews: [{ author, rating, text, relative_time, photo }] }
     // Se a API falhar ou não houver dados, a seção continua escondida.
+    var cfg = window.RV_CONFIG || {};
     var rvSection = document.getElementById("avaliacoes");
-    if (rvSection && window.fetch) {
+    if (rvSection && window.fetch && cfg.googleReviews !== false) {
       fetch(rvSection.getAttribute("data-endpoint"), { headers: { Accept: "application/json" } })
         .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
         .then(function (d) {
           var rating = Number(d.rating);
           var list = (d.reviews || [])
-            .filter(function (r) { return r && r.text && Number(r.rating) >= 4; })
-            .slice(0, 3);
+            .filter(function (r) { return r && r.text && Number(r.rating) >= (cfg.minStars || 4); })
+            .slice(0, cfg.maxReviews || 3);
           if (!rating || !list.length) return;
 
           var stars = function (n) {

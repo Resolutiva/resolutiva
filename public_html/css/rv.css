@@ -287,6 +287,28 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 .hero-title .line:nth-child(2) > span { animation-delay: 0.14s; }
 .hero-title .accent { color: var(--periwinkle); font-weight: 500; }
+.hero-title .line.accent { padding-top: 0.4em; margin-top: -0.4em; }
+.hero-title .brand-word { color: #fff; font-weight: 800; }
+.hero-title .v-check { position: relative; display: inline-block; }
+.hero-title .v-check svg {
+  position: absolute;
+  left: -0.02em;
+  bottom: 0.03em;
+  width: 0.74em;
+  height: 0.74em;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 6.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 0.12em rgba(34, 197, 94, 0.45));
+  animation: checkDraw 0.8s var(--ease) 1.2s forwards;
+}
+@keyframes checkDraw { to { stroke-dashoffset: 0; } }
 @keyframes lineIn { to { transform: none; } }
 
 .hero-sub {

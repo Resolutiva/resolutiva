@@ -97,6 +97,90 @@
       });
     });
 
+    // ---------- Avaliações do Google (ResolutivaPages) ----------
+    // Espera: { place: { maps_url, review_url }, rating, ratings_total, reviews: [{ author, rating, text, relative_time, photo }] }
+    // Se a API falhar ou não houver dados, a seção continua escondida.
+    var rvSection = document.getElementById("avaliacoes");
+    if (rvSection && window.fetch) {
+      fetch(rvSection.getAttribute("data-endpoint"), { headers: { Accept: "application/json" } })
+        .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
+        .then(function (d) {
+          var rating = Number(d.rating);
+          var list = (d.reviews || [])
+            .filter(function (r) { return r && r.text && Number(r.rating) >= 4; })
+            .slice(0, 3);
+          if (!rating || !list.length) return;
+
+          var stars = function (n) {
+            var s = "";
+            for (var i = 1; i <= 5; i++) s += '<span class="' + (i <= Math.round(n) ? "on" : "off") + '">★</span>';
+            return s;
+          };
+          rvSection.querySelector("[data-rv-rating]").textContent = rating.toFixed(1).replace(".", ",");
+          rvSection.querySelector("[data-rv-stars]").innerHTML = stars(rating);
+          rvSection.querySelector("[data-rv-total]").textContent = d.ratings_total || list.length;
+          var reviewUrl = d.place && d.place.review_url;
+          if (reviewUrl) {
+            var rb = rvSection.querySelector("[data-rv-review]");
+            rb.href = reviewUrl;
+            rb.hidden = false;
+          }
+          var mapsUrl = (d.place && d.place.maps_url) || d.maps_url;
+          if (mapsUrl) rvSection.querySelector("[data-rv-link]").href = mapsUrl;
+          else rvSection.querySelector(".reviews-foot").hidden = true;
+
+          var grid = rvSection.querySelector("[data-rv-list]");
+          list.forEach(function (r) {
+            var card = document.createElement("article");
+            card.className = "review-card";
+
+            var st = document.createElement("div");
+            st.className = "review-stars";
+            st.setAttribute("aria-label", r.rating + " de 5 estrelas");
+            st.innerHTML = stars(r.rating);
+
+            var tx = document.createElement("p");
+            tx.className = "review-text";
+            tx.textContent = r.text;
+
+            var au = document.createElement("div");
+            au.className = "review-author";
+            var av = document.createElement("span");
+            av.className = "review-avatar";
+            var name = r.author || "Cliente Google";
+            if (r.photo) {
+              var img = document.createElement("img");
+              img.src = r.photo;
+              img.alt = "";
+              img.referrerPolicy = "no-referrer";
+              img.loading = "lazy";
+              img.onerror = function () { av.textContent = name.charAt(0).toUpperCase(); };
+              av.appendChild(img);
+            } else {
+              av.textContent = name.charAt(0).toUpperCase();
+            }
+            var meta = document.createElement("span");
+            var b = document.createElement("b");
+            b.textContent = name;
+            var sm = document.createElement("small");
+            sm.textContent = r.relative_time || "Avaliação no Google";
+            meta.appendChild(b);
+            meta.appendChild(sm);
+            au.appendChild(av);
+            au.appendChild(meta);
+
+            card.appendChild(st);
+            card.appendChild(tx);
+            card.appendChild(au);
+            grid.appendChild(card);
+          });
+
+          rvSection.hidden = false;
+          rvSection.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+        })
+        .catch(function () { /* sem dados: seção permanece escondida */ });
+    }
+
     // ---------- Newsletter (ResolutivaPages) ----------
     // Envia para a rota pública do Pages: a inscrição entra como assinante
     // do cliente "Resolutiva" (slug em data-client) e recebe e-mail de confirmação.

@@ -39,7 +39,7 @@
 			<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
 
 			<!-- Estilo da landing -->
-			<link rel="stylesheet" href="css/rv.css?v=12">
+			<link rel="stylesheet" href="css/rv.css?v=15">
 		</head>
 
 		<body>
@@ -305,12 +305,36 @@
 					</div>
 				</section>
 
+				<!-- AVALIAÇÕES GOOGLE (dados vêm do ResolutivaPages; fica escondida até carregar) -->
+				<section id="avaliacoes" class="section reviews" data-section-theme="light" data-endpoint="https://pages.resolutiva.com.br/api/v1/landing/resolutiva/avaliacoes-google" hidden>
+					<div class="section-inner">
+						<div class="reviews-head reveal">
+							<div>
+								<span class="eyebrow">05 / Avaliações</span>
+								<h2>Quem já trabalhou com a gente <span class="accent">recomenda.</span></h2>
+							</div>
+							<div class="reviews-score">
+								<span class="reviews-num" data-rv-rating>5,0</span>
+								<span class="reviews-stars" data-rv-stars aria-hidden="true"></span>
+								<span class="reviews-count"><i class="fab fa-google"></i> <b data-rv-total>0</b> avaliações no Google</span>
+							</div>
+						</div>
+
+						<div class="review-grid" data-rv-list></div>
+
+						<div class="reviews-foot reveal">
+							<a class="button button-primary" href="#" target="_blank" rel="noopener" data-rv-review hidden>Avaliar a Resolutiva <span>★</span></a>
+							<a class="button button-dark" href="#" target="_blank" rel="noopener" data-rv-link>Ver todas no Google <span>↗&#xFE0E;</span></a>
+						</div>
+					</div>
+				</section>
+
 				<!-- NEWSLETTER (integrada ao ResolutivaPages: a inscrição cai no cliente "Resolutiva" da plataforma) -->
 				<section id="newsletter" class="section newsletter" data-section-theme="light">
 					<div class="section-inner">
 						<div class="newsletter-card reveal">
 							<div class="newsletter-copy">
-								<span class="eyebrow">05 / Newsletter</span>
+								<span class="eyebrow">06 / Newsletter</span>
 								<h2>Novidades da Resolutiva <span class="accent">no seu e-mail.</span></h2>
 								<p>Dicas de sites, automação e presença digital direto na sua caixa de entrada. Sem spam: dá pra sair quando quiser.</p>
 							</div>
@@ -336,7 +360,7 @@
 				<!-- CONTATO -->
 				<section id="contato" class="section section-dark contact" data-section-theme="dark">
 					<div class="section-inner">
-						<span class="eyebrow reveal">06 / Contato</span>
+						<span class="eyebrow reveal">07 / Contato</span>
 						<h2 class="reveal">Vamos tirar sua ideia <span class="accent">do papel?</span></h2>
 						<p class="contact-lead reveal">Conte sua ideia e a gente te ajuda a transformar em um projeto real.</p>
 
@@ -390,6 +414,6 @@
 				</div>
 			</div>
 
-			<script src="js/rv.js?v=2"></script>
+			<script src="js/rv.js?v=6"></script>
 		</body>
 </html>

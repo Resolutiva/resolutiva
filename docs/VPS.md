@@ -23,25 +23,49 @@ ssh root@31.97.30.36          # chave ed25519 já autorizada (sem senha)
 
 ## Site institucional Resolutiva (`public_html/` na raiz do domínio)
 
-Diferente do `chat` (app agendativa), a landing page da Resolutiva (`resolutiva/resolutiva` no GitHub) é servida
-diretamente por `/home/resolutiva.com.br/public_html/` — que **é um symlink**, não uma pasta real:
+Diferente do `chat` (app agendativa), a landing da Resolutiva (`resolutiva/resolutiva` no GitHub) é servida
+por `/home/resolutiva.com.br/public_html/`. Desde 09/10/2026 (verificado em 10/10/2026) essa pasta é uma
+**pasta real** — não é mais o symlink para o clone que existia na migração para git — e o webroot **não
+atualiza sozinho** com `git pull`. Ela também hospeda outras coisas além do site: `chat/` (app agendativa),
+`barbearia/`, `teste/`, `qr/` e `vendor/`.
 
 ```
-/home/resolutiva.com.br/public_html -> resolutiva/public_html
-/home/resolutiva.com.br/resolutiva/         # clone git completo (root), sparse-checkout só em public_html/
-/home/resolutiva.com.br/resolutiva/.git/    # fora do docroot, não é servido (testado: 404)
+/home/resolutiva.com.br/public_html/        # webroot REAL (o que o navegador vê)
+/home/resolutiva.com.br/resolutiva/         # clone git (root), sparse-checkout só em public_html/
+/home/resolutiva.com.br/resolutiva/.git/    # fora do docroot, não é servido
 ```
 
 O repo tem `docs/` e `media/` na raiz além de `public_html/` — **essas duas pastas nunca são baixadas na VPS**
 (`git sparse-checkout set public_html`), pra não expor este arquivo nem os assets de origem no webroot público.
 
-Deploy (como root, mesma exceção do `git pull` do chat):
+Deploy do site (como root, mesma exceção do `git pull` do chat). Dois passos: atualizar o clone **e copiar
+os arquivos alterados** para o webroot, preservando dono/grupo de cada arquivo:
 ```bash
 cd /home/resolutiva.com.br/resolutiva
-git pull
-chown -R resol2813:nobody .        # mesmo motivo do golden rule: git como root muda o dono
+git pull                                   # ou: git fetch <bundle> main && git merge --ff-only FETCH_HEAD
+git diff --name-only HEAD@{1} HEAD -- public_html    # arquivos que mudaram
+
+cd /home/resolutiva.com.br
+mkdir -p /root/rv-backup-$(date +%Y%m%d)
+for f in index.html css/rv.css js/rv.js; do    # ajuste a lista aos arquivos alterados
+  cp -p --parents public_html/$f /root/rv-backup-$(date +%Y%m%d)/
+  install -m 644 -o "$(stat -c %U public_html/$f)" -g "$(stat -c %G public_html/$f)" \
+    resolutiva/public_html/$f public_html/$f
+done
+chown -R resol2813:nobody resolutiva       # git como root muda o dono do clone
 ```
-Site atualiza na hora — não precisa reiniciar nada (é só HTML/CSS/JS + `qr/index.php`).
+Site atualiza na hora — não precisa reiniciar nada (é só HTML/CSS/JS + `qr/index.php`). Confirme no ar:
+`curl -sL https://resolutiva.com.br/ | grep -o 'rv.css?v=[0-9]*'` e suba o `?v=` do `index.html` a cada
+mudança de CSS/JS (cache do navegador).
+
+**Cuidados:** copie só os arquivos que mudaram — não faça `rsync --delete`/`cp -r` da pasta inteira, porque
+o webroot tem pastas que não existem no clone (`chat/`, `barbearia/`, `teste/`). Compare antes de sobrescrever
+(`git show <commit-antigo>:public_html/<arquivo> | cmp - public_html/<arquivo>`): se o arquivo no ar diferir
+do commit anterior, alguém editou direto no servidor.
+
+**Push do GitHub:** o ambiente de desenvolvimento local não tem credencial para este repositório. Quando
+for preciso publicar o commit, ele pode sair da própria VPS (chave do root): enviar um `git bundle` para o
+clone, `git merge --ff-only` e `git push origin main` de lá.
 
 Backup pré-migração (pasta real antiga, caso precise comparar/reverter): `public_html.pre-git-backup-20260830-142033/`.
 

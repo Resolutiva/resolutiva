@@ -277,5 +277,23 @@
     }, { passive: true });
     window.addEventListener("resize", update);
     update();
+
+    // ---------- Atalhos diretos das plataformas (dock) ----------
+    var dock = document.querySelector("[data-platform-dock]");
+    if (dock) {
+      var heroEl = document.getElementById("home");
+      var footerEl = document.querySelector(".site-footer");
+      var updateDock = function () {
+        var vh = window.innerHeight;
+        var pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < vh * 0.35 : window.scrollY > vh;
+        var atFooter = footerEl ? footerEl.getBoundingClientRect().top < vh * 0.85 : false;
+        var show = pastHero && !atFooter;
+        dock.classList.toggle("is-visible", show);
+        document.body.classList.toggle("dock-on", show);
+      };
+      window.addEventListener("scroll", updateDock, { passive: true });
+      window.addEventListener("resize", updateDock);
+      updateDock();
+    }
   });
 })();

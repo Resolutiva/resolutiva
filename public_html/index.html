@@ -39,7 +39,7 @@
 			<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
 
 			<!-- Estilo da landing -->
-			<link rel="stylesheet" href="css/rv.css?v=15">
+			<link rel="stylesheet" href="css/rv.css?v=17">
 		</head>
 
 		<body>
@@ -183,7 +183,7 @@
 						</div>
 
 						<div class="product-list">
-							<article class="product spot reveal">
+							<article class="product spot reveal" id="resolutivachat">
 								<div class="product-copy">
 									<span class="product-tag"><i>●</i> Atendimento no WhatsApp</span>
 									<h3>Resolutiva<b>Chat</b></h3>
@@ -214,7 +214,7 @@
 								</div>
 							</article>
 
-							<article class="product flip spot reveal">
+							<article class="product flip spot reveal" id="resolutivapages">
 								<div class="product-copy">
 									<span class="product-tag"><i>●</i> Landing pages sob demanda · Novo</span>
 									<h3>Resolutiva<b>Pages</b></h3>
@@ -402,6 +402,13 @@
 			</a>
 
 			<!-- Cookie Banner -->
+			<!-- ATALHOS DIRETOS PARA AS PLATAFORMAS (lateral no desktop, barra inferior no celular) -->
+			<nav class="platform-dock" data-platform-dock aria-label="Acessar as plataformas">
+				<span class="dock-label" aria-hidden="true">Acessar</span>
+				<a href="https://chat.resolutiva.com.br" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>ResolutivaChat</span><em aria-hidden="true">↗&#xFE0E;</em></a>
+				<a href="https://pages.resolutiva.com.br/" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>ResolutivaPages</span><em aria-hidden="true">↗&#xFE0E;</em></a>
+			</nav>
+
 			<div id="cookie-banner">
 				<div class="cookie-inner">
 					<div>
@@ -415,6 +422,6 @@
 			</div>
 
 			<script src="js/config.js?v=1"></script>
-			<script src="js/rv.js?v=7"></script>
+			<script src="js/rv.js?v=9"></script>
 		</body>
 </html>

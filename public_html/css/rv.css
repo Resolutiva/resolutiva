@@ -1247,7 +1247,7 @@ html.js .hero-word strong {
     left: 50%; right: auto; top: auto; bottom: max(10px, env(safe-area-inset-bottom));
     width: max-content; max-width: calc(100% - 20px);
     flex-direction: row; align-items: stretch; justify-content: center; gap: 4px;
-    padding: 4px 4px 4px 8px; border-radius: 14px; transform: translate(-50%, 160%);
+    padding: 3px 3px 3px 6px; gap: 3px; border-radius: 13px; transform: translate(-50%, 160%);
     background: rgba(8, 11, 24, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
@@ -1258,11 +1258,11 @@ html.js .hero-word strong {
   .platform-dock .dock-label {
     display: block; flex: none; align-self: center; padding: 0;
     writing-mode: vertical-rl; transform: rotate(180deg);
-    font-size: 8.5px; letter-spacing: 0.22em; color: rgba(255, 255, 255, 0.55);
+    font-size: 7.5px; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.55);
   }
   .platform-dock a {
-    flex: none; justify-content: center; padding: 9px 13px; gap: 0 !important;
-    font-size: 11.5px; text-align: center; white-space: nowrap; line-height: 1.15;
+    flex: none; justify-content: center; padding: 7px 9px; gap: 0 !important;
+    font-size: 11px; text-align: center; white-space: nowrap; line-height: 1.15;
     background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px;
   }

@@ -295,5 +295,45 @@
       window.addEventListener("resize", updateDock);
       updateDock();
     }
+
+    // ---------- Colagem do portfólio: capas reais do ResolutivaPages (API pública) ----------
+    var collage = document.querySelector("[data-showcase]");
+    if (collage && window.fetch) {
+      var safeUrl = function (u) { return typeof u === "string" && /^https:\/\//i.test(u) ? u : null; };
+      var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 6000);
+      fetch(collage.getAttribute("data-endpoint"), { headers: { Accept: "application/json" }, signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+        .then(function (data) {
+          clearTimeout(timer);
+          var items = (data.items || []).filter(function (it) { return safeUrl(it.image); }).slice(0, 4);
+          if (!items.length) return;
+          items.forEach(function (it, i) {
+            var link = safeUrl(it.url) || safeUrl(data.portfolio_url);
+            var fig = document.createElement(link ? "a" : "figure");
+            fig.className = "rv-shot rv-shot-" + (i + 1);
+            if (link) { fig.href = link; fig.target = "_blank"; fig.rel = "noopener"; fig.setAttribute("aria-label", String(it.label || "") + (it.title ? ": " + it.title : "")); }
+            var img = document.createElement("img");
+            img.src = safeUrl(it.image); img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+            var cap = document.createElement("span");
+            cap.textContent = String(it.label || "");
+            fig.appendChild(img); fig.appendChild(cap);
+            collage.appendChild(fig);
+          });
+          var phoneSrc = safeUrl(data.phone_image);
+          if (phoneSrc) {
+            var ph = document.createElement("div");
+            ph.className = "rv-phone"; ph.setAttribute("aria-hidden", "true");
+            var inner = document.createElement("div");
+            var pimg = document.createElement("img");
+            pimg.src = phoneSrc; pimg.alt = ""; pimg.loading = "lazy";
+            inner.appendChild(pimg); ph.appendChild(inner); collage.appendChild(ph);
+          }
+          collage.hidden = false;
+          var card = collage.closest(".portfolio-card");
+          if (card) card.classList.add("has-collage");
+        })
+        .catch(function () { clearTimeout(timer); /* sem API: a seção segue só com o texto e os ramos */ });
+    }
   });
 })();

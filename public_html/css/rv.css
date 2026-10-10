@@ -1233,7 +1233,7 @@ html.js .hero-word strong {
 .platform-dock a:hover { background: var(--blue); color: #fff; }
 .platform-dock a:hover em { opacity: 1; }
 
-@media (max-width: 1280px) {
+@media (max-width: 1599px) {
   .platform-dock a { gap: 0; }
   .platform-dock a em { display: none; }
   .platform-dock a span { max-width: 0; overflow: hidden; opacity: 0; transition: max-width 0.3s, opacity 0.2s; }
@@ -1273,4 +1273,59 @@ html.js .hero-word strong {
   body.dock-on .whatsapp-float { bottom: 84px; }
   body.dock-on #cookie-banner { bottom: 84px; }
   .site-footer { padding-bottom: 90px; }
+}
+
+/* ============================================================
+   colagem do portfólio (capas reais do ResolutivaPages, via API)
+   ============================================================ */
+.portfolio-copy .ramo-list { margin: 0 0 30px; }
+@media (min-width: 901px) { .portfolio-card.has-collage { grid-template-columns: 0.95fr 1.05fr; } }
+.rv-collage { position: relative; min-height: 460px; }
+.rv-collage[hidden] { display: none; }
+.rv-shot {
+  position: absolute; margin: 0; display: block; width: 47%; height: 200px;
+  overflow: hidden; border-radius: 18px; text-decoration: none; color: #fff;
+  background: linear-gradient(145deg, #0d1b55, #07133f);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s var(--ease);
+}
+.rv-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.rv-shot figcaption, .rv-shot > span {
+  position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
+}
+.rv-shot-1 { left: 0; top: 0; transform: rotate(-4deg); }
+.rv-shot-2 { right: 0; top: 22px; transform: rotate(3deg); }
+.rv-shot-3 { left: 3%; bottom: 14px; transform: rotate(3deg); }
+.rv-shot-4 { right: 2%; bottom: 40px; transform: rotate(-3deg); }
+.rv-collage:hover .rv-shot { transform: rotate(0); }
+.rv-phone {
+  position: absolute; z-index: 4; left: 50%; top: 50%; width: 150px; aspect-ratio: 9 / 19;
+  padding: 6px; border-radius: 28px;
+  background: linear-gradient(145deg, #2a2f45, #05060d);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 34px 70px rgba(0, 0, 0, 0.6), 0 0 0 5px rgba(43, 67, 217, 0.18);
+  transform: translate(-50%, -50%) rotate(-3deg);
+  animation: rvPhoneFloat 6s ease-in-out infinite;
+}
+.rv-phone::before {
+  content: ""; position: absolute; z-index: 2; left: 50%; top: 11px; width: 46px; height: 12px;
+  border-radius: 999px; background: #05060d; transform: translateX(-50%);
+}
+.rv-phone > div { width: 100%; height: 100%; overflow: hidden; border-radius: 23px; background: #fff; }
+.rv-phone img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+@keyframes rvPhoneFloat {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-3deg); }
+  50% { transform: translate(-50%, calc(-50% - 12px)) rotate(-1deg); }
+}
+@media (prefers-reduced-motion: reduce) { .rv-phone { animation: none; } }
+@media (max-width: 720px) {
+  .rv-collage { min-height: 400px; }
+  .rv-shot { height: 150px; border-radius: 14px; }
+  .rv-shot-2 { top: 14px; }
+  .rv-shot-4 { bottom: 26px; }
+  .rv-phone { width: 118px; border-radius: 22px; }
+  .rv-phone > div { border-radius: 17px; }
 }

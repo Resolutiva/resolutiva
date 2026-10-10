@@ -39,7 +39,7 @@
 			<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
 
 			<!-- Estilo da landing -->
-			<link rel="stylesheet" href="css/rv.css?v=19">
+			<link rel="stylesheet" href="css/rv.css?v=21">
 		</head>
 
 		<body>
@@ -248,13 +248,10 @@
 				<section id="portfolio" class="section portfolio" data-section-theme="light">
 					<div class="section-inner">
 						<div class="portfolio-card reveal">
-							<div>
+							<div class="portfolio-copy">
 								<span class="eyebrow">03 / Portfólio</span>
 								<h2>Conheça nosso novo portfólio.</h2>
 								<p>Reunimos todos os nossos trabalhos em uma vitrine própria, mais completa e sempre atualizada, dentro da plataforma <strong>ResolutivaPages</strong>.</p>
-								<a href="https://pages.resolutiva.com.br/portfolio" target="_blank" rel="noopener" class="button button-light">Ver portfólio completo <span>↗&#xFE0E;</span></a>
-							</div>
-							<div>
 								<div class="ramo-list">
 									<span class="ramo"><i class="fas fa-scissors"></i> Barbearia</span>
 									<span class="ramo"><i class="fas fa-tooth"></i> Odontologia</span>
@@ -265,7 +262,10 @@
 									<span class="ramo"><i class="fas fa-paw"></i> Petshop</span>
 									<span class="ramo"><i class="fas fa-stethoscope"></i> Clínica Médica</span>
 								</div>
+								<a href="https://pages.resolutiva.com.br/portfolio" target="_blank" rel="noopener" class="button button-light" data-showcase-link>Ver portfólio completo <span>↗&#xFE0E;</span></a>
 							</div>
+							<!-- Colagem dinâmica: capas reais do portfólio do ResolutivaPages (js/rv.js preenche) -->
+							<div class="rv-collage" data-showcase data-endpoint="https://pages.resolutiva.com.br/api/v1/portfolio/destaques" hidden></div>
 						</div>
 					</div>
 				</section>
@@ -422,6 +422,6 @@
 			</div>
 
 			<script src="js/config.js?v=1"></script>
-			<script src="js/rv.js?v=9"></script>
+			<script src="js/rv.js?v=10"></script>
 		</body>
 </html>

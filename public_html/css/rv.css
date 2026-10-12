@@ -289,26 +289,30 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .hero-title .accent { color: var(--periwinkle); font-weight: 500; }
 .hero-title .line.accent { padding-top: 0.4em; margin-top: -0.4em; }
 .hero-title .brand-word { color: #fff; font-weight: 800; }
-.hero-title .v-check { position: relative; display: inline-block; }
+.hero-title .v-check {
+  position: relative;
+  display: inline-block;
+}
 .hero-title .v-check svg {
   position: absolute;
   left: -0.02em;
-  bottom: 0.03em;
-  width: 0.74em;
-  height: 0.74em;
+  width: calc(100% + 0.14em);
+  top: 24%;
+  bottom: 2%;
   overflow: visible;
   pointer-events: none;
   fill: none;
   stroke: #22c55e;
-  stroke-width: 6.5;
+  stroke-opacity: 0.88;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  filter: drop-shadow(0 0 0.12em rgba(34, 197, 94, 0.45));
-  animation: checkDraw 0.8s var(--ease) 1.2s forwards;
 }
-@keyframes checkDraw { to { stroke-dashoffset: 0; } }
+.hero-title .v-check path { stroke-dasharray: 1; stroke-dashoffset: 1; vector-effect: non-scaling-stroke; }
+.hero-title .v-check .vs1 { stroke-width: 0.2em; animation: vDraw 0.35s cubic-bezier(.3,.1,.3,1) 1.2s forwards; }
+.hero-title .v-check .vs2 { stroke-width: 0.18em; animation: vDraw 0.45s cubic-bezier(.3,.1,.3,1) 1.5s forwards; }
+@keyframes vDraw { to { stroke-dashoffset: 0; } }
 @keyframes lineIn { to { transform: none; } }
 
 .hero-sub {
@@ -1063,6 +1067,7 @@ html.js .hero-word strong {
   width: 58px; height: 58px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 999px;
+  text-decoration: none;
   background: #25d366;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s, box-shadow 0.2s;

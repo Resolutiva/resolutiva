@@ -182,6 +182,65 @@
         .catch(function () { /* sem dados: seção permanece escondida */ });
     }
 
+    // ---------- Instagram (ResolutivaPages) ----------
+    // Espera: { profile: { username, url }, button, posts: [{ id, url, image, alt, is_video }] }
+    // O ResolutivaPages só serve o cache local do feed (as fotos saem dele). Se a API falhar
+    // ou o feed não estiver conectado, a seção continua escondida.
+    var igSection = document.getElementById("instagram");
+    if (igSection && window.fetch && cfg.instagram !== false) {
+      var igHttps = function (u) { return typeof u === "string" && u.indexOf("https://") === 0; };
+      var igUrl = cfg.instagramEndpoint || igSection.getAttribute("data-endpoint");
+      var igMax = Math.max(1, Math.min(12, parseInt(cfg.instagramPosts, 10) || 6));
+
+      fetch(igUrl + (igUrl.indexOf("?") === -1 ? "?" : "&") + "limit=" + igMax, { headers: { Accept: "application/json" } })
+        .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
+        .then(function (d) {
+          var posts = (d.posts || [])
+            .filter(function (p) { return p && igHttps(p.url) && igHttps(p.image); })
+            .slice(0, igMax);
+          if (!posts.length) return;
+
+          var grid = igSection.querySelector("[data-rv-ig-list]");
+          posts.forEach(function (p) {
+            var a = document.createElement("a");
+            a.className = "ig-item";
+            a.href = p.url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.setAttribute("aria-label", p.alt || "Ver publicação no Instagram");
+
+            var img = document.createElement("img");
+            img.src = p.image;
+            img.alt = p.alt || "";
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.width = 450;
+            img.height = 450;
+            a.appendChild(img);
+
+            if (p.is_video) {
+              var play = document.createElement("span");
+              play.className = "ig-play";
+              play.setAttribute("aria-hidden", "true");
+              play.textContent = "▶";
+              a.appendChild(play);
+            }
+            grid.appendChild(a);
+          });
+
+          var profileUrl = d.profile && d.profile.url;
+          var btn = igSection.querySelector("[data-rv-ig-profile]");
+          if (igHttps(profileUrl)) {
+            btn.href = profileUrl;
+            btn.hidden = false;
+          }
+
+          igSection.hidden = false;
+          igSection.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+        })
+        .catch(function () { /* sem dados: seção permanece escondida */ });
+    }
+
     // ---------- Newsletter (ResolutivaPages) ----------
     // Envia para a rota pública do Pages: a inscrição entra como assinante
     // do cliente "Resolutiva" (slug em data-client) e recebe e-mail de confirmação.

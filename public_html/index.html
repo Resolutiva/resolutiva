@@ -39,7 +39,7 @@
 			<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
 
 			<!-- Estilo da landing -->
-			<link rel="stylesheet" href="css/rv.css?v=34">
+			<link rel="stylesheet" href="css/rv.css?v=35">
 		</head>
 
 		<body>
@@ -383,6 +383,21 @@
 					</div>
 				</section>
 
+				<!-- INSTAGRAM (feed vem do ResolutivaPages; fica escondida até carregar. Liga/desliga e quantidade em js/config.js) -->
+				<section id="instagram" class="section instagram" data-section-theme="light" data-endpoint="https://pages.resolutiva.com.br/api/v1/landing/resolutiva/instagram" hidden>
+					<div class="section-inner">
+						<div class="instagram-head reveal">
+							<div>
+								<span class="eyebrow">06 / Instagram</span>
+								<h2>Acompanhe o dia a dia <span class="accent">da Resolutiva.</span></h2>
+							</div>
+							<a class="button button-dark" href="#" target="_blank" rel="noopener noreferrer" data-rv-ig-profile hidden><i class="fab fa-instagram"></i> Seguir no Instagram <span>↗&#xFE0E;</span></a>
+						</div>
+
+						<div class="instagram-grid" data-rv-ig-list></div>
+					</div>
+				</section>
+
 			</main>
 
 			<!-- FOOTER -->
@@ -421,7 +436,7 @@
 				</div>
 			</div>
 
-			<script src="js/config.js?v=1"></script>
-			<script src="js/rv.js?v=10"></script>
+			<script src="js/config.js?v=2"></script>
+			<script src="js/rv.js?v=11"></script>
 		</body>
 </html>

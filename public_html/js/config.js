@@ -11,5 +11,16 @@ window.RV_CONFIG = {
 
   // Quantos depoimentos mostrar e a nota mínima (em estrelas) para exibir.
   maxReviews: 3,
-  minStars: 4
+  minStars: 4,
+
+  // Seção "Instagram" (últimas postagens, vindas do ResolutivaPages), antes do rodapé.
+  // false = a seção não aparece e nenhuma chamada à API é feita.
+  instagram: true,
+
+  // Quantas postagens mostrar (1 a 12). O ResolutivaPages também limita pelo que o bloco permite.
+  instagramPosts: 6,
+
+  // Opcional: outra landing do ResolutivaPages como fonte (vazio = a do data-endpoint do index.html).
+  // Ex.: "https://pages.resolutiva.com.br/api/v1/landing/OUTRO-SLUG/instagram"
+  instagramEndpoint: ""
 };

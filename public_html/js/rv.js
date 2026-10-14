@@ -201,6 +201,7 @@
           if (!posts.length) return;
 
           var grid = igSection.querySelector("[data-rv-ig-list]");
+          grid.setAttribute("data-count", posts.length); // o CSS escolhe as colunas (4 posts = 4 colunas)
           posts.forEach(function (p) {
             var a = document.createElement("a");
             a.className = "ig-item";

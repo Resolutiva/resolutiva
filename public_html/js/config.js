@@ -18,7 +18,7 @@ window.RV_CONFIG = {
   instagram: true,
 
   // Quantas postagens mostrar (1 a 12). O ResolutivaPages também limita pelo que o bloco permite.
-  instagramPosts: 6,
+  instagramPosts: 4,
 
   // Opcional: outra landing do ResolutivaPages como fonte (vazio = a do data-endpoint do index.html).
   // Ex.: "https://pages.resolutiva.com.br/api/v1/landing/OUTRO-SLUG/instagram"

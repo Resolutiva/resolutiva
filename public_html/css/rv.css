@@ -910,6 +910,8 @@ html.js .hero-word strong {
 .instagram-head [hidden] { display: none; }
 
 .instagram-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.instagram-grid[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+.instagram-grid[data-count="4"], .instagram-grid[data-count="8"] { grid-template-columns: repeat(4, 1fr); }
 .ig-item {
   position: relative;
   display: block;
@@ -1215,7 +1217,7 @@ html.js .hero-word strong {
   .reviews-head { grid-template-columns: 1fr; gap: 28px; margin-bottom: 40px; }
   .review-grid { grid-template-columns: 1fr; }
   .instagram-head { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 36px; }
-  .instagram-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .instagram-grid, .instagram-grid[data-count] { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .product, .portfolio-card, .newsletter-card { grid-template-columns: 1fr; padding: 34px 24px; gap: 30px; }
   .product.flip .product-copy { order: 0; }
   .mock { min-height: 340px; }

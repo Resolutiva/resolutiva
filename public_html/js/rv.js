@@ -191,6 +191,7 @@
       var igHttps = function (u) { return typeof u === "string" && u.indexOf("https://") === 0; };
       var igUrl = cfg.instagramEndpoint || igSection.getAttribute("data-endpoint");
       var igMax = Math.max(1, Math.min(12, parseInt(cfg.instagramPosts, 10) || 6));
+      var igDesktop = Math.max(1, Math.min(igMax, parseInt(cfg.instagramPostsDesktop, 10) || igMax));
 
       fetch(igUrl + (igUrl.indexOf("?") === -1 ? "?" : "&") + "limit=" + igMax, { headers: { Accept: "application/json" } })
         .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
@@ -201,10 +202,12 @@
           if (!posts.length) return;
 
           var grid = igSection.querySelector("[data-rv-ig-list]");
-          grid.setAttribute("data-count", posts.length); // o CSS escolhe as colunas (4 posts = 4 colunas)
-          posts.forEach(function (p) {
+          // O CSS escolhe as colunas: data-count = quantos aparecem no computador; data-total = todos (celular).
+          grid.setAttribute("data-count", Math.min(posts.length, igDesktop));
+          grid.setAttribute("data-total", posts.length);
+          posts.forEach(function (p, i) {
             var a = document.createElement("a");
-            a.className = "ig-item";
+            a.className = "ig-item" + (i >= igDesktop ? " ig-extra" : "");
             a.href = p.url;
             a.target = "_blank";
             a.rel = "noopener noreferrer";

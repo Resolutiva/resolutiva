@@ -912,6 +912,7 @@ html.js .hero-word strong {
 .instagram-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .instagram-grid[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
 .instagram-grid[data-count="4"], .instagram-grid[data-count="8"] { grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 901px) { .ig-item.ig-extra { display: none; } }
 .ig-item {
   position: relative;
   display: block;
@@ -1218,6 +1219,16 @@ html.js .hero-word strong {
   .review-grid { grid-template-columns: 1fr; }
   .instagram-head { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 36px; }
   .instagram-grid, .instagram-grid[data-count] { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  /* Celular: 3, 6, 9 ou 12 posts fecham linhas certas em 3 colunas (como na newsletter). */
+  .instagram-grid[data-total="3"], .instagram-grid[data-total="6"], .instagram-grid[data-total="9"], .instagram-grid[data-total="12"] { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .instagram-grid[data-total] .ig-item { border-radius: 14px; }
+  .instagram-grid[data-total] .ig-play { top: 8px; right: 8px; width: 26px; height: 26px; font-size: 10px; }
+  /* Celular: o botão "Seguir" desce para depois das fotos e fica centralizado (como na newsletter). */
+  .instagram .section-inner { display: flex; flex-direction: column; }
+  .instagram-head { display: contents; }
+  .instagram-head > div { margin-bottom: 32px; }
+  .instagram-grid { order: 1; }
+  .instagram-head .button { order: 2; align-self: center; margin-top: 36px; }
   .product, .portfolio-card, .newsletter-card { grid-template-columns: 1fr; padding: 34px 24px; gap: 30px; }
   .product.flip .product-copy { order: 0; }
   .mock { min-height: 340px; }

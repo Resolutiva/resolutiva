@@ -886,28 +886,19 @@ html.js .hero-word strong {
 .reviews + .newsletter { background: var(--paper); padding-top: 100px; }
 
 /* ============================================================
-   INSTAGRAM (últimas postagens, antes do rodapé)
+   INSTAGRAM (últimas postagens, antes do rodapé) — fundo escuro, mesmo visual da newsletter
    ============================================================ */
-.instagram { background: #fff; }
+.instagram { background: var(--dark-2); color: #fff; }
 .instagram[hidden] { display: none; }
-.instagram-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-  margin-bottom: 48px;
-}
+.instagram-head { text-align: center; margin-bottom: 44px; }
 .instagram-head h2 {
-  margin-top: 18px;
-  font-size: clamp(32px, 4.2vw, 58px);
-  line-height: 1.04;
+  font-size: clamp(30px, 3.8vw, 52px);
+  line-height: 1.05;
   letter-spacing: -0.055em;
   font-weight: 800;
+  color: #fff;
 }
-.instagram-head h2 .accent { color: var(--blue); font-weight: 500; }
-.instagram-head .button { flex: 0 0 auto; white-space: nowrap; }
-.instagram-head .button i { margin-right: 8px; }
-.instagram-head [hidden] { display: none; }
+.instagram-head h2 .accent { color: var(--periwinkle); font-weight: 500; }
 
 .instagram-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .instagram-grid[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
@@ -918,13 +909,12 @@ html.js .hero-word strong {
   display: block;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: calc(var(--radius) * 0.7);
-  background: var(--paper);
-  border: 1px solid var(--line);
-  transition: transform 0.5s var(--ease), box-shadow 0.5s, border-color 0.3s;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s;
 }
 .ig-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s var(--ease); }
-.ig-item:hover { transform: translateY(-5px); border-color: rgba(43, 67, 217, 0.4); box-shadow: var(--shadow); }
+.ig-item:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); }
 .ig-item:hover img { transform: scale(1.05); }
 .ig-play {
   position: absolute;
@@ -937,6 +927,13 @@ html.js .hero-word strong {
   font-size: 12px;
   padding-left: 2px;
 }
+
+.instagram-foot { margin-top: 44px; display: flex; justify-content: center; }
+.instagram-foot [hidden] { display: none; }
+.instagram-foot .button { white-space: nowrap; }
+.instagram-foot .button i { margin-right: 8px; }
+.instagram-foot .button-dark { border: 1px solid rgba(255, 255, 255, 0.28); }
+.instagram-foot .button-dark:hover { border-color: rgba(255, 255, 255, 0.6); }
 
 /* ============================================================
    NEWSLETTER
@@ -1217,18 +1214,13 @@ html.js .hero-word strong {
   .section-intro { grid-template-columns: 1fr; gap: 24px; margin-bottom: 44px; }
   .reviews-head { grid-template-columns: 1fr; gap: 28px; margin-bottom: 40px; }
   .review-grid { grid-template-columns: 1fr; }
-  .instagram-head { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 36px; }
+  .instagram-head { margin-bottom: 32px; }
   .instagram-grid, .instagram-grid[data-count] { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   /* Celular: 3, 6, 9 ou 12 posts fecham linhas certas em 3 colunas (como na newsletter). */
   .instagram-grid[data-total="3"], .instagram-grid[data-total="6"], .instagram-grid[data-total="9"], .instagram-grid[data-total="12"] { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .instagram-grid[data-total] .ig-item { border-radius: 14px; }
   .instagram-grid[data-total] .ig-play { top: 8px; right: 8px; width: 26px; height: 26px; font-size: 10px; }
-  /* Celular: o botão "Seguir" desce para depois das fotos e fica centralizado (como na newsletter). */
-  .instagram .section-inner { display: flex; flex-direction: column; }
-  .instagram-head { display: contents; }
-  .instagram-head > div { margin-bottom: 32px; }
-  .instagram-grid { order: 1; }
-  .instagram-head .button { order: 2; align-self: center; margin-top: 36px; }
+  .instagram-foot { margin-top: 32px; }
   .product, .portfolio-card, .newsletter-card { grid-template-columns: 1fr; padding: 34px 24px; gap: 30px; }
   .product.flip .product-copy { order: 0; }
   .mock { min-height: 340px; }

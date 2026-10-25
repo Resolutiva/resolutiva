@@ -916,6 +916,28 @@ html.js .hero-word strong {
 .ig-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s var(--ease); }
 .ig-item:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); }
 .ig-item:hover img { transform: scale(1.05); }
+.ig-caption {
+  position: absolute;
+  inset: 0;
+  padding: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 9;
+  background: rgba(10, 13, 26, 0.82);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+  pointer-events: none;
+}
+.ig-item:focus-visible .ig-caption { opacity: 1; }
+/* Sem hover (celular/tablet), a legenda não aparece: o toque abre o post. */
+@media (hover: hover) { .ig-item:hover .ig-caption { opacity: 1; } }
+@media (max-width: 1100px) { .ig-caption { padding: 14px; font-size: 12px; -webkit-line-clamp: 7; } }
 .ig-play {
   position: absolute;
   top: 12px; right: 12px;

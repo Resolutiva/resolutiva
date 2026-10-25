@@ -211,7 +211,9 @@
             a.href = p.url;
             a.target = "_blank";
             a.rel = "noopener noreferrer";
-            a.setAttribute("aria-label", p.alt || "Ver publicação no Instagram");
+            // Legenda completa (caption, até 300 caracteres); alt é a versão truncada, usada como reserva.
+            var caption = String(p.caption || "").replace(/\\n/g, "\n").trim();
+            a.setAttribute("aria-label", (caption || p.alt || "Ver publicação no Instagram").slice(0, 140));
 
             var img = document.createElement("img");
             img.src = p.image;
@@ -221,6 +223,14 @@
             img.width = 450;
             img.height = 450;
             a.appendChild(img);
+
+            if (caption) {
+              var cap = document.createElement("span");
+              cap.className = "ig-caption";
+              cap.setAttribute("aria-hidden", "true");
+              cap.textContent = caption; // textContent + white-space: pre-line preservam as quebras de linha
+              a.appendChild(cap);
+            }
 
             if (p.is_video) {
               var play = document.createElement("span");
